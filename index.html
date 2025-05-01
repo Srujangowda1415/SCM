@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Calm - Student Mental Well-being Support</title>
+    <meta name="description" content="A safe space for student mental peace. Book sessions, find balance." />
+    <meta name="author" content="Campus Calm" />
+
+    <meta property="og:title" content="Campus Calm - Student Mental Well-being Support" />
+    <meta property="og:description" content="A safe space for student mental peace. Book sessions, find balance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="site-container">
+      <!-- Navigation Bar -->
+      <header>
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">Campus Calm</a>
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book a Session</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="calm-mode-toggle">
+            <label class="switch">
+              <input type="checkbox" id="calmModeToggle">
+              <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Calm Mode</span>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Hero Section -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1>A safe space for student mental peace</h1>
+            <p>Book sessions, find balance, and nurture your well-being</p>
+            <a href="booking.html" class="button button-primary button-transition">Book a Session</a>
+          </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services-preview">
+          <div class="section-heading">
+            <h2>Our Services</h2>
+            <p>Supporting your mental well-being journey</p>
+          </div>
+
+          <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+              <div class="service-icon">🌿</div>
+              <h3>1-on-1 Therapy</h3>
+              <p>Private sessions with our experienced counselors to discuss any concerns.</p>
+              <a href="services.html" class="button-link">Learn More</a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+              <div class="service-icon">🧘</div>
+              <h3>Guided Meditation</h3>
+              <p>Structured meditation sessions to help calm your mind and reduce stress.</p>
+              <a href="services.html" class="button-link">Learn More</a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+              <div class="service-icon">🎓</div>
+              <h3>Academic Stress Counseling</h3>
+              <p>Targeted support for managing academic pressure and expectations.</p>
+              <a href="services.html" class="button-link">Learn More</a>
+            </div>
+          </div>
+
+          <div class="section-cta">
+            <a href="services.html" class="button button-secondary button-transition">View All Services</a>
+          </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonials">
+          <div class="section-heading">
+            <h2>Student Experiences</h2>
+            <p>Hear from those who've found balance with us</p>
+          </div>
+
+          <div class="testimonial-card">
+            <p>"The meditation sessions have completely transformed how I handle exam stress. I feel more centered now."</p>
+            <p class="testimonial-author">- Sarah, Psychology Major</p>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Campus Calm</h3>
+            <p>Supporting student mental well-being, one session at a time.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="booking.html">Book a Session</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: support@campuscalm.edu</p>
+            <p>Phone: (555) 123-4567</p>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2025 Campus Calm. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript for basic interactions -->
+    <script>
+      // Toggle mobile navigation
+      document.getElementById('navToggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+      
+      // Toggle calm mode
+      document.getElementById('calmModeToggle').addEventListener('change', function() {
+        document.documentElement.classList.toggle('calm-mode');
+        localStorage.setItem('calmMode', this.checked);
+      });
+      
+      // Check for saved calm mode preference
+      if (localStorage.getItem('calmMode') === 'true') {
+        document.getElementById('calmModeToggle').checked = true;
+        document.documentElement.classList.add('calm-mode');
+      }
+    </script>
+
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  </body>
+</html>

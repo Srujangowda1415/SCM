@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - Campus Calm</title>
+    <meta name="description" content="Explore our mental well-being services for students." />
+    <meta name="author" content="Campus Calm" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="site-container">
+      <!-- Navigation Bar -->
+      <header>
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">Campus Calm</a>
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="booking.html">Book a Session</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="calm-mode-toggle">
+            <label class="switch">
+              <input type="checkbox" id="calmModeToggle">
+              <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Calm Mode</span>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Services Header -->
+        <section class="page-header">
+          <h1>Our Services</h1>
+          <p>Tailored support for student mental well-being</p>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-full">
+          <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+              <div class="service-icon">🌿</div>
+              <h3>1-on-1 Therapy</h3>
+              <p>Private sessions with our experienced counselors to discuss any concerns or challenges you're facing. Our therapists specialize in supporting student mental health.</p>
+              <p><strong>Duration:</strong> 50 minutes</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+              <div class="service-icon">🧘</div>
+              <h3>Guided Meditation</h3>
+              <p>Structured meditation sessions to help calm your mind, reduce stress, and improve focus. Perfect for beginners and experienced meditators alike.</p>
+              <p><strong>Duration:</strong> 30 minutes</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+              <div class="service-icon">🎓</div>
+              <h3>Academic Stress Counseling</h3>
+              <p>Targeted support for managing academic pressure, exam anxiety, and balancing your studies with other aspects of life.</p>
+              <p><strong>Duration:</strong> 45 minutes</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+              <div class="service-icon">💬</div>
+              <h3>Group Sharing Circles</h3>
+              <p>Join fellow students in a safe, facilitated environment to share experiences and support each other through common challenges.</p>
+              <p><strong>Duration:</strong> 60 minutes</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+              <div class="service-icon">📅</div>
+              <h3>Weekly Check-ins</h3>
+              <p>Brief, regular check-in sessions to monitor your progress and adjust support strategies as needed.</p>
+              <p><strong>Duration:</strong> 15 minutes</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+              <div class="service-icon">📚</div>
+              <h3>Well-being Workshop</h3>
+              <p>Interactive workshops on various mental health topics such as stress management, healthy boundaries, and mindfulness practices.</p>
+              <p><strong>Duration:</strong> 90 minutes</p>
+            </div>
+          </div>
+
+          <div class="section-cta">
+            <a href="booking.html" class="button button-primary button-transition">Book a Service</a>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Campus Calm</h3>
+            <p>Supporting student mental well-being, one session at a time.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="booking.html">Book a Session</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: support@campuscalm.edu</p>
+            <p>Phone: (555) 123-4567</p>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2025 Campus Calm. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript for basic interactions -->
+    <script>
+      // Toggle mobile navigation
+      document.getElementById('navToggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+      
+      // Toggle calm mode
+      document.getElementById('calmModeToggle').addEventListener('change', function() {
+        document.documentElement.classList.toggle('calm-mode');
+        localStorage.setItem('calmMode', this.checked);
+      });
+      
+      // Check for saved calm mode preference
+      if (localStorage.getItem('calmMode') === 'true') {
+        document.getElementById('calmModeToggle').checked = true;
+        document.documentElement.classList.add('calm-mode');
+      }
+    </script>
+  </body>
+</html>

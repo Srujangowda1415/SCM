@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Session - Campus Calm</title>
+    <meta name="description" content="Book your mental well-being session with Campus Calm." />
+    <meta name="author" content="Campus Calm" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+      /* Additional styles for booking form */
+      .booking-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: var(--card);
+        padding: 2rem;
+        border-radius: var(--radius);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border);
+      }
+      
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      
+      .form-input,
+      .form-select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background-color: var(--background);
+        font-family: 'Nunito', sans-serif;
+        font-size: 1rem;
+      }
+      
+      .form-input:focus,
+      .form-select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(179, 215, 229, 0.3);
+      }
+      
+      .form-checkbox {
+        margin-right: 0.5rem;
+      }
+      
+      .form-submit {
+        width: 100%;
+        margin-top: 1rem;
+      }
+      
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .calendar-header {
+        font-weight: 600;
+        text-align: center;
+        padding: 0.5rem;
+      }
+      
+      .calendar-day {
+        padding: 0.5rem;
+        text-align: center;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .calendar-day:hover {
+        background-color: var(--muted);
+      }
+      
+      .calendar-day.selected {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+      }
+      
+      .calendar-day.disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-container">
+      <!-- Navigation Bar -->
+      <header>
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">Campus Calm</a>
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html" class="active">Book a Session</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="calm-mode-toggle">
+            <label class="switch">
+              <input type="checkbox" id="calmModeToggle">
+              <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Calm Mode</span>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Booking Header -->
+        <section class="page-header">
+          <h1>Book a Session</h1>
+          <p>Take the first step toward better mental well-being</p>
+        </section>
+
+        <!-- Booking Form -->
+        <section class="booking-section">
+          <div class="booking-form">
+            <form id="sessionBookingForm">
+              <div class="form-group">
+                <label for="service" class="form-label">Select a Service</label>
+                <select id="service" name="service" class="form-select" required>
+                  <option value="" disabled selected>Choose a service...</option>
+                  <option value="1on1">1-on-1 Therapy (50 min)</option>
+                  <option value="meditation">Guided Meditation (30 min)</option>
+                  <option value="academic">Academic Stress Counseling (45 min)</option>
+                  <option value="group">Group Sharing Circles (60 min)</option>
+                  <option value="checkin">Weekly Check-in (15 min)</option>
+                  <option value="workshop">Well-being Workshop (90 min)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Select a Date</label>
+                <div class="calendar" id="bookingCalendar">
+                  <div class="calendar-header">Sun</div>
+                  <div class="calendar-header">Mon</div>
+                  <div class="calendar-header">Tue</div>
+                  <div class="calendar-header">Wed</div>
+                  <div class="calendar-header">Thu</div>
+                  <div class="calendar-header">Fri</div>
+                  <div class="calendar-header">Sat</div>
+                  <!-- Calendar days will be populated by JavaScript -->
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="time" class="form-label">Preferred Time</label>
+                <select id="time" name="time" class="form-select" required>
+                  <option value="" disabled selected>Choose a time...</option>
+                  <option value="9:00">9:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">1:00 PM</option>
+                  <option value="14:00">2:00 PM</option>
+                  <option value="15:00">3:00 PM</option>
+                  <option value="16:00">4:00 PM</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="institution" class="form-label">University/Institution (Optional)</label>
+                <input type="text" id="institution" name="institution" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" id="anonymous" name="anonymous" class="form-checkbox"> 
+                  Book Anonymously (Only your first name will be shared with the counselor)
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label for="notes" class="form-label">Additional Notes (Optional)</label>
+                <textarea id="notes" name="notes" class="form-input" rows="3"></textarea>
+              </div>
+
+              <button type="submit" class="button button-primary button-transition form-submit">Confirm Booking</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Campus Calm</h3>
+            <p>Supporting student mental well-being, one session at a time.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="booking.html">Book a Session</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: support@campuscalm.edu</p>
+            <p>Phone: (555) 123-4567</p>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2025 Campus Calm. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript for basic interactions -->
+    <script>
+      // Toggle mobile navigation
+      document.getElementById('navToggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+      
+      // Toggle calm mode
+      document.getElementById('calmModeToggle').addEventListener('change', function() {
+        document.documentElement.classList.toggle('calm-mode');
+        localStorage.setItem('calmMode', this.checked);
+      });
+      
+      // Check for saved calm mode preference
+      if (localStorage.getItem('calmMode') === 'true') {
+        document.getElementById('calmModeToggle').checked = true;
+        document.documentElement.classList.add('calm-mode');
+      }
+      
+      // Simple calendar functionality
+      function populateCalendar() {
+        const calendarElement = document.getElementById('bookingCalendar');
+        const today = new Date();
+        const currentMonth = today.getMonth();
+        const currentYear = today.getFullYear();
+        
+        // Get the first day of the current month
+        const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+        
+        // Get the number of days in the current month
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        
+        // Clear existing calendar days
+        const headerElements = calendarElement.querySelectorAll('.calendar-header');
+        while (calendarElement.childElementCount > headerElements.length) {
+          calendarElement.removeChild(calendarElement.lastChild);
+        }
+        
+        // Add empty cells for days before the first day of the month
+        for (let i = 0; i < firstDay; i++) {
+          const emptyDay = document.createElement('div');
+          emptyDay.className = 'calendar-day disabled';
+          calendarElement.appendChild(emptyDay);
+        }
+        
+        // Add days of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayElement = document.createElement('div');
+          dayElement.className = 'calendar-day';
+          dayElement.textContent = day;
+          
+          // Disable past days
+          const currentDate = new Date(currentYear, currentMonth, day);
+          if (currentDate < today) {
+            dayElement.classList.add('disabled');
+          } else {
+            // Add click handler for selectable days
+            dayElement.addEventListener('click', function() {
+              // Remove selected class from all days
+              document.querySelectorAll('.calendar-day.selected').forEach(el => {
+                el.classList.remove('selected');
+              });
+              
+              // Add selected class to clicked day
+              this.classList.add('selected');
+            });
+          }
+          
+          calendarElement.appendChild(dayElement);
+        }
+      }
+      
+      // Form submission handler
+      document.getElementById('sessionBookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simple validation
+        const selectedDay = document.querySelector('.calendar-day.selected');
+        
+        if (!selectedDay) {
+          alert('Please select a date for your appointment.');
+          return;
+        }
+        
+        // In a real application, this would send data to a server
+        // For now, just show a success message
+        alert('Thank you! Your session has been booked. You will receive a confirmation email shortly.');
+        
+        // Reset form
+        this.reset();
+        document.querySelectorAll('.calendar-day.selected').forEach(el => {
+          el.classList.remove('selected');
+        });
+      });
+      
+      // Initialize calendar
+      window.addEventListener('load', populateCalendar);
+    </script>
+  </body>
+</html>
